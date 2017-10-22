@@ -26,7 +26,8 @@ public class Demo
     //run sort
     System.out.println("Sorted array:");
     //CHANGE NAME OF CLASS AND SIZE NUMBER FOR TESTING
-    InsertionSortRecursive.insertionSort(test);
+    MergeSortIterative.mergeSort(test);
+    //MergeSortRecursive.mergeSort(test);
     for(int i = 0; i < test.length; i++)
     {
       System.out.print(test[i] + " ");
