@@ -5,13 +5,12 @@
 public class SelectiveSortIterative
 {
   /** Sorts the integer array in ascending order.
-      @param a  The array of integers to be sorted.
-      @param n  The size of the array. */
-  public static void selectionSort(int[] a, int n)
+      @param a  The array of integers to be sorted. */
+  public static void selectionSort(int[] a)
   {
-    for (int i = 0; i < n - 1; i++)
+    for (int i = 0; i < a.length - 1; i++)
     {
-      int indexOfNextSmallest = getIndexOfSmallest(a, i, n - 1);
+      int indexOfNextSmallest = getIndexOfSmallest(a, i, a.length - 1);
       swap(a, i, indexOfNextSmallest);
     } // end for
   } // end selectionSort

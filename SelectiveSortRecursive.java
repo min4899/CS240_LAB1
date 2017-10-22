@@ -5,25 +5,23 @@
 public class SelectiveSortRecursive
 {
   /** Invokes the recursive method that sorts the integer array in ascending order.
-      @param a  The array of integers to be sorted.
-      @param n  The size of the array. */
-  public static void selectionSort(int[] a, int n)
+      @param a  The array of integers to be sorted. */
+  public static void selectionSort(int[] a)
   {
-    selectionSort(a, 0, n - 1); // Invoke recursive method
+    selectionSort(a, 0); // Invoke recursive method
   } // end selectionSort
 
   /** Sorts the integer array in ascending order after being invoked.
       @param a  The array of integers to be sorted.
-      @param first  The index to start sorting.
-      @param n  The size of the array. */
-  private static void selectionSort(int[] a, int first, int n)
+      @param first  The index to start sorting. */
+  private static void selectionSort(int[] a, int first)
   {
-    if(first < n)
+    if(first < a.length)
     {
-      int indexOfNextSmallest = getIndexOfSmallest(a, first, n - 1);
+      int indexOfNextSmallest = getIndexOfSmallest(a, first, a.length - 1);
       swap(a, first, indexOfNextSmallest);
-      selectionSort(a, first + 1, n);
-    }
+      selectionSort(a, first + 1);
+    } // end if
   } // end selectionSort
 
   /** Finds the index of the smallest value in a section of the array.
