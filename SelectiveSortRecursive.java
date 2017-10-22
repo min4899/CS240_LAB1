@@ -1,19 +1,29 @@
 /**
-   An iterative selective sort that organizes integer arrays in ascending order.
+   An recursive selective sort that organizes integer arrays in ascending order.
    @author Minwoo Soh
 */
-public class SelectiveSortIterative
+public class SelectiveSortRecursive
 {
-  /** Sorts the integer array in ascending order.
+  /** Invokes the recursive method that sorts the integer array in ascending order.
       @param a  The array of integers to be sorted.
       @param n  The size of the array. */
   public static void selectionSort(int[] a, int n)
   {
-    for (int i = 0; i < n - 1; i++)
+    selectionSort(a, 0, n - 1); // Invoke recursive method
+  } // end selectionSort
+
+  /** Sorts the integer array in ascending order after being invoked.
+      @param a  The array of integers to be sorted.
+      @param first  The index to start sorting.
+      @param n  The size of the array. */
+  private static void selectionSort(int[] a, int first, int n)
+  {
+    if(first < n)
     {
-      int indexOfNextSmallest = getIndexOfSmallest(a, i, n - 1);
-      swap(a, i, indexOfNextSmallest);
-    } // end for
+      int indexOfNextSmallest = getIndexOfSmallest(a, first, n - 1);
+      swap(a, first, indexOfNextSmallest);
+      selectionSort(a, first + 1, n);
+    }
   } // end selectionSort
 
   /** Finds the index of the smallest value in a section of the array.
@@ -46,4 +56,4 @@ public class SelectiveSortIterative
     a[i] = a[j];
     a[j] = temp;
   } // end swap
-} // end of SelectiveSortIterative
+} // end of SelectiveSortRecursive
