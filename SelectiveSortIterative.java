@@ -4,16 +4,21 @@
 */
 public class SelectiveSortIterative
 {
+  private static int countMove = 0;
+  private static int countCompare = 0;
+
   /** Sorts the integer array in ascending order.
       @param a  The array of integers to be sorted. */
-  public static void selectionSort(int[] a)
+  public static void sort(int[] a)
   {
     for (int i = 0; i < a.length - 1; i++)
     {
       int indexOfNextSmallest = getIndexOfSmallest(a, i, a.length - 1);
       swap(a, i, indexOfNextSmallest);
     } // end for
-  } // end selectionSort
+    System.out.println("countMove: " + countMove);
+    System.out.println("countCompare: " + countCompare);
+  } // end sort
 
   /** Finds the index of the smallest value in a section of the array.
       @param a  An array of integers.
@@ -28,6 +33,7 @@ public class SelectiveSortIterative
     {
       if (a[i] < min)
       {
+        countCompare++;
         min = a[i];
         indexOfMin = i;
       } // end if
@@ -44,5 +50,6 @@ public class SelectiveSortIterative
     int temp = a[i];
     a[i] = a[j];
     a[j] = temp;
+    countMove++;
   } // end swap
 } // end of SelectiveSortIterative
