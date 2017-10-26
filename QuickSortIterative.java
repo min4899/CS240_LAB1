@@ -4,9 +4,6 @@
 */
 public class QuickSortIterative
 {
-  private static int countMove = 0;
-  private static int countCompare = 0;
-
   /** Sorts the integer array in ascending order.
       @param a  The aay of integers to be sorted. */
   public static void sort(int[] a)
@@ -48,9 +45,6 @@ public class QuickSortIterative
         stack[++top] = last;
       } // end if
     } // end while
-
-    System.out.println("countMove: " + countMove);
-    System.out.println("countCompare: " + countCompare);
   } // end sort
 
   /** Sets last element of array as pivot. Then places all values lower than
@@ -68,13 +62,11 @@ public class QuickSortIterative
     {
       if (a[i] <= pivot) // Current element is smllaer that pivot
       {
-        countCompare++;
         lower++;
         // Swap a[lower] and a[i].
         int temp = a[lower];
         a[lower] = a[i];
         a[i] = temp;
-        countMove++;
       } // end if
     } // end for
 
@@ -82,7 +74,6 @@ public class QuickSortIterative
     int temp = a[lower + 1];
     a[lower + 1] = a[last];
     a[last] = temp;
-    countMove++;
 
     // Every value after index lower should be smaller than pivot's value.
     return lower + 1;

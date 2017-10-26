@@ -6,25 +6,25 @@ public class MergeSortRecursive
 {
   /** Invokes the recursive method that sorts the integer array in ascending order.
       @param a  The array of integers to be sorted. */
-  public static void mergeSort(int[] a)
+  public static void sort(int[] a)
   {
-    mergeSort(a, 0, a.length - 1);
-  } // end mergeSort
+    sort(a, 0, a.length - 1);
+  } // end sort
 
   /** Sorts the integer array in ascending order after being invoked.
       @param a  The array of integers to be sorted.
       @param first  The index to start sorting.
       @param last  The index to stop sorting. */
-  private static void mergeSort(int[] a, int first, int last)
+  private static void sort(int[] a, int first, int last)
   {
     if(first < last)
     {
       int mid = (first + last) / 2;
-      mergeSort(a, first, mid);
-      mergeSort(a, mid + 1, last);
+      sort(a, first, mid);
+      sort(a, mid + 1, last);
       merge(a, first, mid, last);
     } // end if
-  } // end mergeSort
+  } // end sort
 
   /** Combines 2 divided arrays into one sorted section of array.
       @param a  The array of integers to be sorted.

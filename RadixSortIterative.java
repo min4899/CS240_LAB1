@@ -4,9 +4,6 @@
 */
 public class RadixSortIterative
 {
-  private static int countMove = 0;
-  private static int countCompare = 0;
-
   /** Sorts the integer array with integers size of 0 - 999 in ascending order.
       @param a  The array of integers to be sorted. */
   public static void sort(int[] a)
@@ -18,9 +15,6 @@ public class RadixSortIterative
     {
       countSort(a, digit);
     } // end for
-
-    System.out.println("countMove: " + countMove);
-    System.out.println("countCompare: " + countCompare);
   } // end sort
 
   /** Orgnaizes array according to sinle digit.
@@ -34,7 +28,6 @@ public class RadixSortIterative
     for (int i = 0; i < a.length; i++) // Tracks occurrnces.
     {
       count[ (a[i]/digit)%10 ]++;
-      countCompare++;
     } // end for
 
     for (int i = 1; i < 10; i++) // Changes count to to contain actual indexes of array.
@@ -51,7 +44,6 @@ public class RadixSortIterative
     for (int i = 0; i < a.length; i++) // Copy temp to array. Sorted according to current digit.
     {
       a[i] = temp[i];
-      countMove++;
     } // end for
   } // end countSort
 } // end of RadixSortIterative

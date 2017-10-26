@@ -6,23 +6,23 @@ public class InsertionSortRecursive
 {
   /** Invokes the recursive method that sorts the integer array in ascending order.
       @param a  The array of integers to be sorted. */
-  public static void insertionSort(int[] a)
+  public static void sort(int[] a)
   {
-    insertionSort(a, 0, a.length - 1); // Invoke iterative method
+    sort(a, 0, a.length - 1); // Invoke iterative method
   } // end selectionSort
 
   /** Sorts the integer array in ascending order after being invoked.
       @param a  The array of integers to be sorted.
       @param first  The index to start sorting.
       @param last  The index to stop sorting */
-  private static void insertionSort(int[] a, int first, int last)
+  private static void sort(int[] a, int first, int last)
   {
     if(first < last)
     {
-      insertionSort(a, first, last - 1);
+      sort(a, first, last - 1);
       insertInOrder(a[last], a, first, last - 1);
     } // end if
-  } // end insertionSort
+  } // end sort
 
   /** Inserts entry into sorted section of array.
       @param entry  The value to be inserted in proper position.

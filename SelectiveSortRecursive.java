@@ -6,24 +6,24 @@ public class SelectiveSortRecursive
 {
   /** Invokes the recursive method that sorts the integer array in ascending order.
       @param a  The array of integers to be sorted. */
-  public static void selectionSort(int[] a)
+  public static void sort(int[] a)
   {
-    selectionSort(a, 0, a.length - 1); // Invoke recursive method
-  } // end selectionSort
+    sort(a, 0, a.length - 1); // Invoke recursive method
+  } // end sort
 
   /** Sorts the integer array in ascending order after being invoked.
       @param a  The array of integers to be sorted.
       @param first  The index to start sorting.
       @param last  The index to stop sorting. */
-  private static void selectionSort(int[] a, int first, int last)
+  private static void sort(int[] a, int first, int last)
   {
     if(first < last)
     {
       int indexOfNextSmallest = getIndexOfSmallest(a, first, last, first);
       swap(a, first, indexOfNextSmallest);
-      selectionSort(a, first + 1, last);
+      sort(a, first + 1, last);
     } // end if
-  } // end selectionSort
+  } // end sort
 
   /** Finds the index of the smallest value in a section of the array.
       @param a  An array of integers.

@@ -4,9 +4,6 @@
 */
 public class ShellSortIterative
 {
-  private static int countMove = 0;
-  private static int countCompare = 0;
-
   /** Sorts the integer array in ascending order.
       @param a  The array of integers to be sorted. */
   public static void sort(int[] a)
@@ -25,8 +22,6 @@ public class ShellSortIterative
       k--;
       space = (int)(Math.pow(2,k) - 1);
     } // end while
-    System.out.println("countMove: " + countMove);
-    System.out.println("countCompare: " + countCompare);
   } // end sort
 
   /** Sorts equally spaced entries of an array into ascending order.
@@ -42,13 +37,10 @@ public class ShellSortIterative
       int index = unsorted - space;
       while( (index >= first) && (nextToInsert < a[index]) )
       {
-        countCompare++;
         a[index + space] = a[index];
-        countMove++;
         index = index - space;
       } // end while
       a[index + space] = nextToInsert;
-      countMove++;
     } // end for
   } // end incrementalInsertionSort
 } // end of ShellSortIterative

@@ -4,9 +4,6 @@
 */
 public class MergeSortIterative
 {
-  private static int countMove = 0;
-  private static int countCompare = 0;
-
   /** Sorts the integer array in ascending order.
       @param a  The array of integers to be sorted. */
   public static void sort(int[] a)
@@ -26,8 +23,6 @@ public class MergeSortIterative
         merge(a, start, mid, end);
       } // end for
     } // end for
-    System.out.println("countMove: " + countMove);
-    System.out.println("countCompare: " + countCompare);
   } // end sort
 
   /** Combines 2 divided arrays into one sorted section of array.
@@ -63,16 +58,13 @@ public class MergeSortIterative
       if(start[startIndex] <= right[rightIndex]) // Pointed value of start array is lower.
       {
         a[index] = start[startIndex];
-        countMove++;
         startIndex++;
       }
       else // Pointed value of right array is lower
       {
         a[index] = right[rightIndex];
-        countMove++;
         rightIndex++;
       } // end if
-      countCompare++;
       index++;
     } // end while
 
@@ -80,7 +72,6 @@ public class MergeSortIterative
     while(startIndex < firstHalf)
     {
       a[index] = start[startIndex];
-      countMove++;
       startIndex++;
       index++;
     } // end while
@@ -89,7 +80,6 @@ public class MergeSortIterative
     while(rightIndex < secondHalf)
     {
       a[index] = right[rightIndex];
-      countMove++;
       rightIndex++;
       index++;
     } // end while
