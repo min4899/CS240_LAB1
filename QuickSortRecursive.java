@@ -1,5 +1,5 @@
 /**
-   An recursive quick sort that organizes integer aays in ascending order.
+   A recursive quick sort that organizes integer aays in ascending order.
    @author Minwoo Soh
 */
 public class QuickSortRecursive

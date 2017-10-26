@@ -1,5 +1,5 @@
 /**
-   An recursive insertion sort that organizes integer arrays in ascending order.
+   A recursive insertion sort that organizes integer arrays in ascending order.
    @author Minwoo Soh
 */
 public class InsertionSortRecursive

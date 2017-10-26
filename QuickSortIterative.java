@@ -19,6 +19,7 @@ public class QuickSortIterative
     stack[++top] = first;
     stack[++top] = last;
 
+
     // Sorts each partition until no indexes are left in the stack.
     while (top >= 0)
     {

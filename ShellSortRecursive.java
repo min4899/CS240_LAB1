@@ -1,27 +1,38 @@
 /**
-   An iterative shell sort using Hibbard sequences that organizes integer arrays in ascending order.
+   A recursive shell sort using Hibbard sequence that organizes integer arrays in ascending order.
    @author Minwoo Soh
 */
-public class ShellSortIterative
+public class ShellSortRecursive
 {
-  /** Sorts the integer array in ascending order.
+  /** Invokes the recursive method that sorts the integer array in ascending order.
       @param a  The array of integers to be sorted. */
   public static void sort(int[] a)
   {
     int first = 0;
     int last = a.length - 1;
     int k = (int)(Math.log(a.length)/Math.log(2));
-    int space = (int)(Math.pow(2,k) - 1);
+    //int space = (int)(Math.pow(2,k) - 1);
+    sort(a, k, first, last);
+  } // end sort
 
-    while(space > 0)
+  /** Sorts the integer array in ascending order after being invoked.
+      @param a  The array of integers to be sorted.
+      @param k  The Hibbard sequence value.
+      @param first  The index of first element in array.
+      @param last  The incdes of last element in array. */
+  public static void sort(int[] a, int k, int first, int last)
+  {
+    int begin = first;
+    int space = (int)(Math.pow(2,k) - 1);
+    if(space > 0)
     {
-      for(int begin = first; begin <= first + space - 1; begin++)
+      if(begin <= first + space - 1)
       {
         incrementalInsertionSort(a, begin, last, space);
-      } // end for
-      k--;
-      space = (int)(Math.pow(2,k) - 1);
-    } // end while
+        k--;
+        sort(a, k, first, last);
+      } // end if
+    } // end if
   } // end sort
 
   /** Sorts equally spaced entries of an array into ascending order.
@@ -43,4 +54,4 @@ public class ShellSortIterative
       a[index + space] = nextToInsert;
     } // end for
   } // end incrementalInsertionSort
-} // end of ShellSortIterative
+} // end of ShellSortRecursive

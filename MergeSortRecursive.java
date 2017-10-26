@@ -1,5 +1,5 @@
 /**
-   An recursive merge sort that organizes integer arrays in ascending order.
+   A recursive merge sort that organizes integer arrays in ascending order.
    @author Minwoo Soh
 */
 public class MergeSortRecursive
