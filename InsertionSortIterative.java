@@ -18,7 +18,7 @@ public class InsertionSortIterative
   /** Inserts entry into sorted section of array.
       @param entry  The value to be inserted in proper position.
       @param a  The array of integers to be sorted.
-      @param end  The index where sorted sction ends. */
+      @param end  The index where sorted section ends. */
   private static void insertInOrder(int entry, int[] a, int end)
   {
     int index = end;

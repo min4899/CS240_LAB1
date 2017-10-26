@@ -8,19 +8,20 @@ public class SelectiveSortRecursive
       @param a  The array of integers to be sorted. */
   public static void selectionSort(int[] a)
   {
-    selectionSort(a, 0); // Invoke recursive method
+    selectionSort(a, 0, a.length - 1); // Invoke recursive method
   } // end selectionSort
 
   /** Sorts the integer array in ascending order after being invoked.
       @param a  The array of integers to be sorted.
-      @param first  The index to start sorting. */
-  private static void selectionSort(int[] a, int first)
+      @param first  The index to start sorting.
+      @param last  The index to stop sorting. */
+  private static void selectionSort(int[] a, int first, int last)
   {
-    if(first < a.length)
+    if(first < last)
     {
-      int indexOfNextSmallest = getIndexOfSmallest(a, first, a.length - 1);
+      int indexOfNextSmallest = getIndexOfSmallest(a, first, last, first);
       swap(a, first, indexOfNextSmallest);
-      selectionSort(a, first + 1);
+      selectionSort(a, first + 1, last);
     } // end if
   } // end selectionSort
 
@@ -28,20 +29,27 @@ public class SelectiveSortRecursive
       @param a  An array of integers.
       @param first  The index to begin comparison.
       @param last  The index to stop comparison.
+      @param indexOfMin  The index with the lowest array value.
       @return  Returns the index of the smallest integer value. */
-  private static int getIndexOfSmallest(int[] a, int first, int last)
+  private static int getIndexOfSmallest(int[] a, int first, int last, int indexOfMin)
   {
-    int min = a[first];
-    int indexOfMin =  first;
-    for(int i = first + 1; i <= last; i++)
+    if(first == last) // If the search reached end of array.
     {
-      if (a[i] < min)
+      if(a[first] < a[indexOfMin])
       {
-        min = a[i];
-        indexOfMin = i;
+        indexOfMin = first;
       } // end if
-    } // end for
-    return indexOfMin;
+      return indexOfMin;
+    }
+    else
+    {
+      if(a[first] < a[indexOfMin])
+      {
+        indexOfMin = first; // Replace with new index.
+      } // end if
+    } // end if
+    return getIndexOfSmallest(a, first + 1, last, indexOfMin); // Repeat until it reaches last element of array.
+
   } // end getIndexOfSmallest
 
   /** Swaps the array entries.
