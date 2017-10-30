@@ -12,46 +12,48 @@ public class ShellSortRecursive
     int last = a.length - 1;
     int k = (int)(Math.log(a.length)/Math.log(2));
     //int space = (int)(Math.pow(2,k) - 1);
-    sort(a, k, first, last);
+    sort(a, k, first, last, 0);
   } // end sort
 
   /** Sorts the integer array in ascending order after being invoked.
       @param a  The array of integers to be sorted.
       @param k  The Hibbard sequence value.
       @param first  The index of first element in array.
-      @param last  The incdes of last element in array. */
-  public static void sort(int[] a, int k, int first, int last)
+      @param last  The index of last element in array.
+      @param index  The index that will be compared and sorted in the insertion sort. */
+  public static void sort(int[] a, int k, int first, int last, int index)
   {
-    int begin = first;
     int space = (int)(Math.pow(2,k) - 1);
     if(space > 0)
     {
-      if(begin <= first + space - 1)
+      if(index <= last)
       {
-        incrementalInsertionSort(a, begin, last, space);
-        k--;
-        sort(a, k, first, last);
+        incrementalInsertionSort(a[index], a, index + space, last, space);
+        //incrementalInsertionSort(a, begin, last, space);
+        sort(a, k, first, last, index + space);
       } // end if
+      k--;
+      sort(a, k, first, last, 0);
     } // end if
   } // end sort
 
   /** Sorts equally spaced entries of an array into ascending order.
+      @param entry  The element that is being compared and inserted.
       @param a  The array of integers to be sorted.
-      @param first  Index of first array element.
+      @param begin  Index where unsorted section begins.
       @param last  Index of last array element.
       @param space  Difference between the indices of the entries to sort. */
-  private static void incrementalInsertionSort(int[] a, int first, int last, int space)
+  private static void incrementalInsertionSort(int entry, int[] a, int begin, int last, int space)
   {
-    for(int unsorted = first + space; unsorted <= last; unsorted += space)
+    if(begin <= last)
     {
-      int nextToInsert = a[unsorted];
-      int index = unsorted - space;
-      while( (index >= first) && (nextToInsert < a[index]) )
+      if(entry >= a[begin]) // If entry is bigger than the unsorted array element (a[begin]).
       {
-        a[index + space] = a[index];
-        index = index - space;
-      } // end while
-      a[index + space] = nextToInsert;
-    } // end for
+        // Set unsorted element before index begin, and set entry in index begin.
+        a[begin - space] = a[begin];
+        a[begin] = entry;
+        incrementalInsertionSort(entry, a, begin + space, last, space);
+      } // end if
+    } // end if
   } // end incrementalInsertionSort
 } // end of ShellSortRecursive

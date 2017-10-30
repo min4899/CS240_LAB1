@@ -9,7 +9,7 @@ public class Demo
     //Creating array of random numbers
 
     //CHANGE SIZE FOR TESTING
-    int[] test = new int[1000];
+    int[] test = new int[10];
 
     for(int i = 0; i < test.length; i++)
     {
@@ -26,13 +26,13 @@ public class Demo
     //run sort
     System.out.println("Sorted array:");
     //CHANGE NAME OF CLASS AND SIZE NUMBER FOR TESTING
-    RadixSortIterative.sort(test);
-    /*
+    ShellSortRecursive.sort(test);
+
     for(int i = 0; i < test.length; i++)
     {
       System.out.print(test[i] + " ");
     }
     System.out.println();
-    */
+
   }
 }

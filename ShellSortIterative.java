@@ -15,7 +15,8 @@ public class ShellSortIterative
 
     while(space > 0)
     {
-      for(int begin = first; begin <= first + space - 1; begin++)
+      //for(int begin = first; begin <= first + space - 1; begin++)
+      for(int begin = 0; begin <= space - 1; begin++)
       {
         incrementalInsertionSort(a, begin, last, space);
       } // end for
@@ -35,12 +36,12 @@ public class ShellSortIterative
     {
       int nextToInsert = a[unsorted];
       int index = unsorted - space;
-      while( (index >= first) && (nextToInsert < a[index]) )
+      while( (index >= first) && (nextToInsert < a[index]) ) // Only when sorted element is greater.
       {
         a[index + space] = a[index];
         index = index - space;
       } // end while
-      a[index + space] = nextToInsert;
+      a[index + space] = nextToInsert; // Set smaller element before index.
     } // end for
   } // end incrementalInsertionSort
 } // end of ShellSortIterative
