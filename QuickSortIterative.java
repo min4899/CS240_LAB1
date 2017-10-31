@@ -52,7 +52,7 @@ public class QuickSortIterative
       @param a  The array of integers to be sorted.
       @param first  The index to start sorting.
       @param last  The index to stop sorting.
-      @return   */
+      @return  Returns the index where the pivot was placed. */
   private static int partition(int[] a, int first, int last)
   {
     int pivot = a[last]; // Pivot is last element.
