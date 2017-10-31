@@ -19,41 +19,55 @@ public class QuickSortRecursive
   {
     if(first < last)
     {
+      int pivot = a[last]; // Pivot is last element.
+      int lower = first - 1; // Index of smaller elements.
       int partitionIndex = partition(a, first, last); // Set pivot.
       sort(a, first, partitionIndex - 1);
       sort(a, partitionIndex + 1, last);
     } // end if
   } // end sort
 
-  /** Sets last element of array as pivot. Then places all values lower than
-      pivot to the left and all values greater than pivot on the right.
+  /** Sets last element of array as pivot and set the index of elements that will be lower than the pivot.
+      Then set the pivot in between the lower and larger sections.
       @param a  The array of integers to be sorted.
       @param first  The index to start sorting.
-      @param last  The index to stop sorting. */
+      @param last  The index to stop sorting.
+      @return  Returns the index where the pivot was placed. */
   private static int partition(int[] a, int first, int last)
   {
     int pivot = a[last]; // Pivot is last element.
     int lower = (first - 1); // Index of smaller elements.
 
-    // Compares values of each element with the pivot's value.
-    for (int i = first; i < last; i++)
-    {
-      if (a[i] <= pivot) // Current element is smllaer that pivot
-      {
-        lower++;
-        // Swap a[lower] and a[i].
-        int temp = a[lower];
-        a[lower] = a[i];
-        a[i] = temp;
-      } // end if
-    } // end for
+    lower = swap(a, first, last, lower, pivot); // Find the index of the last elements that are lower than pivot.
 
-    // swap a[lower+1] and pivot.
-    int temp = a[lower + 1];
-    a[lower + 1] = a[last];
-    a[last] = temp;
+    // Set the pivot after all the elements that are lower than it.
+    a[last] = a[lower + 1];
+    a[lower + 1] = pivot;
 
-    // Every value after index lower should be smaller than pivot's value.
     return lower + 1;
   } // end partition
+
+  /** Places all values lower than pivot to the left and all values greater than pivot on the right.
+      @param a  The array of integers to be sorted.
+      @param first  The index to start sorting.
+      @param last  The index to stop sorting.
+      @param lower  The last index of elements that are lower than pivot.
+      @param pivot  The element that is used to compare and sort the array.
+      @return  Returns index of last element that is lower than pivot. */
+  private static int swap(int[] a, int first, int last, int lower, int pivot)
+  {
+    if(a[first] <= pivot) // Place elements before pivot index (lower) if they are less than pivot.
+    {
+      lower++;
+      int temp = a[lower];
+      a[lower] = a[first];
+      a[first] = temp;
+    } // end if
+    first++;
+    if(first < last) // Go through entire array.
+    {
+      lower = swap(a, first, last, lower, pivot);
+    } // end if
+    return lower;
+  } // end swap
 } // end of QuickSortRecursive

@@ -51,12 +51,12 @@ public class QuickSortIterative
       pivot to the left and all values greater than pivot on the right.
       @param a  The array of integers to be sorted.
       @param first  The index to start sorting.
-      @param last  The index to stop sorting. */
+      @param last  The index to stop sorting.
+      @return   */
   private static int partition(int[] a, int first, int last)
   {
     int pivot = a[last]; // Pivot is last element.
     int lower = (first - 1); // Index of smaller elements.
-
     // Compares values of each element with the pivot's value.
     for (int i = first; i < last; i++)
     {
