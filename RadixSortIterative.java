@@ -1,5 +1,6 @@
 /**
    An iterative radix sort that organizes integer arrays in ascending order.
+   Only entries of 0 - 999 are allowed.
    @author Minwoo Soh
 */
 public class RadixSortIterative
@@ -19,18 +20,18 @@ public class RadixSortIterative
 
   /** Orgnaizes array according to sinle digit.
       @param a The array of integers to be sorted.
-      @param digit  The digit that the array will sorted with. */
+      @param digit  The digit that the array will be sorted with. */
   private static void countSort(int[] a, int digit)
   {
     int temp[] = new int[a.length]; // temp array
     int count[] = new int[10]; // Counter for digits.
 
-    for (int i = 0; i < a.length; i++) // Tracks occurrnces.
+    for (int i = 0; i < a.length; i++) // Tracks occurrences.
     {
       count[ (a[i]/digit)%10 ]++;
     } // end for
 
-    for (int i = 1; i < 10; i++) // Changes count to to contain actual indexes of array.
+    for (int i = 1; i < 10; i++) // Changes count to contain actual indexes of array.
     {
       count[i] += count[i - 1];
     } // end for

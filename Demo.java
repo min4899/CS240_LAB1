@@ -26,7 +26,7 @@ public class Demo
     //run sort
     System.out.println("Sorted array:");
     //CHANGE NAME OF CLASS AND SIZE NUMBER FOR TESTING
-    QuickSortRecursive.sort(test);
+    RadixSortRecursive.sort(test);
 
     for(int i = 0; i < test.length; i++)
     {
