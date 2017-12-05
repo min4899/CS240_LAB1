@@ -31,7 +31,7 @@ public class RadixSortIterative
       count[ (a[i]/digit)%10 ]++;
     } // end for
 
-    for (int i = 1; i < 10; i++) // Changes count to contain actual indexes of array.
+    for (int i = 1; i < 10; i++) // Changes count to contain indexes for temp array.
     {
       count[i] += count[i - 1];
     } // end for

@@ -19,8 +19,8 @@ public class QuickSortRecursive
   {
     if(first < last)
     {
-      int pivot = a[last]; // Pivot is last element.
-      int lower = first - 1; // Index of smaller elements.
+      //int pivot = a[last]; // Pivot is last element.
+      //int lower = first - 1; // Index of smaller elements.
       int partitionIndex = partition(a, first, last); // Set pivot.
       sort(a, first, partitionIndex - 1);
       sort(a, partitionIndex + 1, last);

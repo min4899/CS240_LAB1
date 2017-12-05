@@ -19,8 +19,8 @@ public class RadixSortRecursive
   public static void sort(int[] a, int digit)
   {
     // Sorts third/last digit when digit = 1.
-    // Sorts second digit when digit = 2.
-    // Sorts first digit when digit = 3.
+    // Sorts second digit when digit = 10.
+    // Sorts first digit when digit = 100.
     if(100/digit > 0)
     {
       int temp[] = new int[a.length]; // temp array
@@ -59,7 +59,7 @@ public class RadixSortRecursive
     } // end if
   } // end trackOcurrences
 
-  /** Changes count to contain actual indexes of array.
+  /** Changes count to contain indexes for temp array.
       @param a  The array of integers to be sorted.
       @param digit  The digit that the array will be sorted with.
       @param count  The array that stores digit counts.

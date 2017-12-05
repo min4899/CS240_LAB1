@@ -26,7 +26,7 @@ public class Demo
     //run sort
     System.out.println("Sorted array:");
     //CHANGE NAME OF CLASS AND SIZE NUMBER FOR TESTING
-    RadixSortRecursive.sort(test);
+    ShellSortIterative.sort(test);
 
     for(int i = 0; i < test.length; i++)
     {

@@ -15,7 +15,6 @@ public class ShellSortIterative
 
     while(space > 0)
     {
-      //for(int begin = first; begin <= first + space - 1; begin++)
       for(int begin = 0; begin <= space - 1; begin++)
       {
         incrementalInsertionSort(a, begin, last, space);
@@ -27,7 +26,7 @@ public class ShellSortIterative
 
   /** Sorts equally spaced entries of an array into ascending order.
       @param a  The array of integers to be sorted.
-      @param first  Index of first array element.
+      @param first  Index where sequence begins.
       @param last  Index of last array element.
       @param space  Difference between the indices of the entries to sort. */
   private static void incrementalInsertionSort(int[] a, int first, int last, int space)
